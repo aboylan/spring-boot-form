@@ -13,7 +13,7 @@ public class FormController {
 		return "form";
 	}
 
-	@PostMapping("/post")
+	@PostMapping("/form")
 	public String procesar(Model model) {
 		return "resultado";
 	}
