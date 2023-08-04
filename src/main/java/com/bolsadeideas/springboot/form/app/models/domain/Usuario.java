@@ -49,7 +49,7 @@ public class Usuario {
 	// @DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date fechaNacimiento;
 
-	@Valid
+	@NotNull
 	private Pais pais;
 
 	public String getIdentificador() {
