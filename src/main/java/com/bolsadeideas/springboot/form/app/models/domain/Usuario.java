@@ -4,20 +4,23 @@ import com.bolsadeideas.springboot.form.app.validation.IdentificadorRegex;
 import com.bolsadeideas.springboot.form.app.validation.Requerido;
 
 import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
 public class Usuario {
 
-	//@Pattern(regexp = "[0-9]{2}[.][\\d]{3}[.][\\d]{3}[-][A-Z]{1}")
+	// @Pattern(regexp = "[0-9]{2}[.][\\d]{3}[.][\\d]{3}[-][A-Z]{1}")
 	@IdentificadorRegex
 	private String identificador;
 
-	//@NotEmpty(message = "El nombre no puede ser vacio")
+	// @NotEmpty(message = "El nombre no puede ser vacio")
 	private String nombre;
 
-	//@NotEmpty
+	// @NotEmpty
 	@Requerido
 	private String apellido;
 
@@ -31,6 +34,11 @@ public class Usuario {
 	@Requerido
 	@Email(message = "Correo con formato incorrecto")
 	private String email;
+
+	@NotNull
+	@Min(5)
+	@Max(5000)
+	private Integer cuenta;
 
 	public String getIdentificador() {
 		return identificador;
@@ -78,6 +86,14 @@ public class Usuario {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public Integer getCuenta() {
+		return cuenta;
+	}
+
+	public void setCuenta(Integer cuenta) {
+		this.cuenta = cuenta;
 	}
 
 }
