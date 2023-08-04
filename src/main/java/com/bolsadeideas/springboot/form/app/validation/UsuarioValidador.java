@@ -23,7 +23,7 @@ public class UsuarioValidador implements Validator {
 			errors.rejectValue("identificador", "pattern.usuario.identificador");
 		}
 
-		ValidationUtils.rejectIfEmpty(errors, "nombre", "NotEmpty.usuario.nombre");
+		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "nombre", "requerido.usuario.nombre");
 
 	}
 
