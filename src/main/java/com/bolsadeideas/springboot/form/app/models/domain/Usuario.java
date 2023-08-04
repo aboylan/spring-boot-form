@@ -1,11 +1,11 @@
 package com.bolsadeideas.springboot.form.app.models.domain;
 
 import java.util.Date;
+import java.util.List;
 
 import com.bolsadeideas.springboot.form.app.validation.IdentificadorRegex;
 import com.bolsadeideas.springboot.form.app.validation.Requerido;
 
-import jakarta.validation.Valid;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
@@ -51,6 +51,9 @@ public class Usuario {
 
 	@NotNull
 	private Pais pais;
+
+	@NotEmpty
+	private List<String> roles;
 
 	public String getIdentificador() {
 		return identificador;
@@ -122,6 +125,14 @@ public class Usuario {
 
 	public void setPais(Pais pais) {
 		this.pais = pais;
+	}
+
+	public List<String> getRoles() {
+		return roles;
+	}
+
+	public void setRoles(List<String> roles) {
+		this.roles = roles;
 	}
 
 }
