@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import com.bolsadeideas.springboot.form.app.editors.NombreMayusculaEditor;
+import com.bolsadeideas.springboot.form.app.models.domain.Pais;
 import com.bolsadeideas.springboot.form.app.models.domain.Usuario;
 import com.bolsadeideas.springboot.form.app.validation.UsuarioValidador;
 
@@ -43,6 +44,13 @@ public class FormController {
 		binder.registerCustomEditor(String.class, "apellido", new NombreMayusculaEditor());
 	}
 
+	@ModelAttribute("listaPaises")
+	public List<Pais> listaPaises() {
+		return Arrays.asList(new Pais(1, "ES", "Espana"), new Pais(2, "MX", "Mexico"), new Pais(3, "CL", "Chile"),
+				new Pais(4, "AR", "Argentina"), new Pais(5, "PE", "Peru"), new Pais(6, "CO", "Colombia"),
+				new Pais(7, "VE", "Venezuela"));
+	}
+
 	@ModelAttribute("paises")
 	public List<String> paises() {
 		return Arrays.asList("Espana", "Mexico", "Chile", "Argentina", "Peru", "Colombia", "Venezuela");
@@ -50,7 +58,7 @@ public class FormController {
 
 	@ModelAttribute("paisesMap")
 	public Map<String, String> paisesMap() {
-		Map<String,String> paises = new HashMap<>();
+		Map<String, String> paises = new HashMap<>();
 		paises.put("ES", "Espana");
 		paises.put("MX", "Mexico");
 		paises.put("CL", "Chile");
